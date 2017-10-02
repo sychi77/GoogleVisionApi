@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gcVisionApi.Web", "gcVisionApi.Web\gcVisionApi.Web.csproj", "{EE50ED2F-541C-49CC-9F36-F5D6E4240360}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gcVisionApi.Web", "Web\gcVisionApi.Web.csproj", "{EE50ED2F-541C-49CC-9F36-F5D6E4240360}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "gcVisionApi.Database", "gcVisionApi.Database\gcVisionApi.Database.sqlproj", "{70F4DFE9-EB13-4BAA-85CA-249D0C6B2E9E}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "gcVisionApi.Database", "Database\gcVisionApi.Database.sqlproj", "{70F4DFE9-EB13-4BAA-85CA-249D0C6B2E9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
