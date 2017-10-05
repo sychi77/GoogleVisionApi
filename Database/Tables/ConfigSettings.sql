@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ConfigSettings]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Setting] NVARCHAR(50) NOT NULL, 
     [Value] NVARCHAR(MAX) NOT NULL
 )

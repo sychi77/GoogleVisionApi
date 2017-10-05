@@ -58,8 +58,10 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Stored Procs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\ConfigSettings.sql" />
+    <Build Include="Stored Procs\SelectApiKey.sql" />
   </ItemGroup>
 </Project>
