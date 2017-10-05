@@ -11,17 +11,26 @@
 
         var vm = this;
         vm.$scope = $scope;
-        vm.visionService = _visionService;
+        vm.visionService = visionService;
         vm.$onInit = _init;
         vm.$window = $window;
         vm.toastr = toastr;
+        vm.imgUrl;
+        vm.imgFile;
+        vm.submit = _submit;
 
         function _init() {
-            return
+            vm.visionService.getKey()
+                .then(_getKeyGood, _error);
         }
+        function _getKeyGood(data) {
+            console.log(data);
+        }
+        function _submit() {
 
+        }
         function _error(err) {
-            return console.log(err)
+            console.log(err);
         }
 
     }

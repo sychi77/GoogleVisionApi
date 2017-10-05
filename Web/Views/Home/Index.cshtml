@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home";
 }
-<body ng-controller="VisionController as vCtrl">
+<body ng-controller="visionController as vCtrl">
     <div class="jumbotron">
         <h1>Google Cloud Vision API</h1>
         <p class="lead">Web application that uses the Google Cloud Vision API to analyze images.</p>
@@ -17,7 +17,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="inputAddress" class="col-form-label">Image URL</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Enter URL of Image">
+                            <input type="text" ng-model="vCtrl.imgUrl" class="form-control" id="inputAddress" placeholder="Enter URL of Image">
                         </div>
                     </div>
                     <button class="btn btn-primary" ng-click="vCtrl.submit()">Submit</button>
@@ -27,7 +27,7 @@
                 <form>
                     <div class="form-group">
                         <label for="imageUpload">Image Upload</label>
-                        <input type="file" class="form-control-file" id="imageUpload">
+                        <input type="file" ng-model="vCtrl.imgFile" class="form-control-file" id="imageUpload">
                     </div>
                     <button class="btn btn-primary" ng-click="vCtrl.submit()">Submit</button>
                 </form>

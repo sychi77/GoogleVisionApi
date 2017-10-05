@@ -13,7 +13,7 @@
         };
         function _getKey() {
             var settings = {
-                url: "/api/vision/key",
+                url: "/api/vision/gckey",
                 method: 'GET',
                 cache: false,
                 responseType: 'json',

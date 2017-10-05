@@ -14,8 +14,8 @@ namespace gcVisionApi.Web.Controllers.API
     {
         VisionService visionService = new VisionService();
 
-        [Route("key"), HttpGet]
-        public HttpResponseMessage GetApiKey(int id)
+        [Route("gckey"), HttpGet]
+        public HttpResponseMessage GetApiKey()
         {
             try
             {
