@@ -11,7 +11,7 @@
 
         var vm = this;
         vm.$scope = $scope;
-        vm.visionService = visionService;
+        vm.visionService = _visionService;
         vm.$onInit = _init;
         vm.$window = $window;
         vm.toastr = toastr;
@@ -19,6 +19,7 @@
         function _init() {
             return
         }
+
         function _error(err) {
             return console.log(err)
         }
