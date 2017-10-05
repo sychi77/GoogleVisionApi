@@ -1,12 +1,16 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="mainApp">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Google Cloud Vision API Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <style>
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -39,6 +43,9 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="~/Scripts/mainApp.js"></script>
+    <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
