@@ -9,7 +9,7 @@
     function visionService($http, $q) {
         return {
             getKey: _getKey,
-            //getImageAnalysis: _getImageAnalysis
+            getImageAnalysis: _getImageAnalysis
         };
         function _getKey() {
             var settings = {
@@ -22,17 +22,18 @@
             return $http(settings)
                 .then(_complete, _fail);
         }
-        //function _getImageAnalysis(key, data) {
-        //    var settings = {
-        //        url: /* Google API Call here */,
-        //        method: 'GET',
-        //        cache: false,
-        //        responseType: 'json',
-        //        withCredentials: true
-        //    };
-        //    return $http(settings)
-        //        .then(_complete, _fail);
-        //}
+        function _getImageAnalysis(key, data) {
+            var settings = {
+                url: "https://vision.googleapis.com/v1/images:annotate?key=" + key,
+                method: 'POST',
+                cache: false,
+                data: data,
+                responseType: 'json',
+                withCredentials: true
+            };
+            return $http(settings)
+                .then(_complete, _fail);
+        }
         function _complete(data) {
             return data;
         }

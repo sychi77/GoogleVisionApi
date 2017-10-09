@@ -18,16 +18,18 @@
         vm.imgUrl;
         vm.imgFile;
         vm.submit = _submit;
+        vm.gcKey;
 
         function _init() {
             vm.visionService.getKey()
                 .then(_getKeyGood, _error);
         }
         function _getKeyGood(data) {
-            console.log(data);
+            vm.gcKey = data.data.Value;
         }
-        function _submit() {
-
+        function _submit(imgData) {
+            vm.visionService.getImageAnalysis(vm.gcKey, imgData)
+                .then(_getImgGood, _error);
         }
         function _error(err) {
             console.log(err);

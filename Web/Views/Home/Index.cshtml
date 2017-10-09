@@ -20,7 +20,7 @@
                             <input type="text" ng-model="vCtrl.imgUrl" class="form-control" id="inputAddress" placeholder="Enter URL of Image">
                         </div>
                     </div>
-                    <button class="btn btn-primary" ng-click="vCtrl.submit()">Submit</button>
+                    <button class="btn btn-primary" ng-click="vCtrl.submit(vCtrl.imgUrl)">Submit</button>
                 </form>
             </div>
             <div id="upload" class="tab-pane fade">
@@ -29,7 +29,7 @@
                         <label for="imageUpload">Image Upload</label>
                         <input type="file" ng-model="vCtrl.imgFile" class="form-control-file" id="imageUpload">
                     </div>
-                    <button class="btn btn-primary" ng-click="vCtrl.submit()">Submit</button>
+                    <button class="btn btn-primary" ng-click="vCtrl.submit(vCtrl.imgFile)">Submit</button>
                 </form>
             </div>
         </div>
