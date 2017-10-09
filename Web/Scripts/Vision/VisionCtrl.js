@@ -17,8 +17,10 @@
         vm.toastr = toastr;
         vm.imgUrl;
         vm.imgFile;
-        vm.submit = _submit;
+        vm.submitUpload = _submitUpload;
+        vm.submitUri = _submitUri;
         vm.gcKey;
+        vm.requests = [];
 
         function _init() {
             vm.visionService.getKey()
@@ -27,9 +29,32 @@
         function _getKeyGood(data) {
             vm.gcKey = data.data.Value;
         }
-        function _submit(imgData) {
-            vm.visionService.getImageAnalysis(vm.gcKey, imgData)
+        function _submitUpload(imgData) {
+
+        }
+        function _submitUri() {
+            var requests = {
+                "requests": [
+                    {
+                        "image": {
+                            "source": {
+                                "imageUri": vm.imgUrl
+                            }
+                        },
+                        "features": [
+                            {
+                                "type": "LABEL_DETECTION",
+                                "maxResults": 3
+                            }
+                        ]
+                    }
+                ]
+            }
+            vm.visionService.getImageAnalysis(vm.gcKey, requests)
                 .then(_getImgGood, _error);
+        }
+        function _getImgGood(resp) {
+            console.log(resp);
         }
         function _error(err) {
             console.log(err);

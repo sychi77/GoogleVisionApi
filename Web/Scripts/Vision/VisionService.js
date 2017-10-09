@@ -26,10 +26,10 @@
             var settings = {
                 url: "https://vision.googleapis.com/v1/images:annotate?key=" + key,
                 method: 'POST',
-                cache: false,
-                data: data,
-                responseType: 'json',
-                withCredentials: true
+                data: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                }
             };
             return $http(settings)
                 .then(_complete, _fail);
