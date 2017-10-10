@@ -56,13 +56,13 @@
         }
         function _getImgGood(resp) {
             console.log(resp);
+
         }
         function getBase64(file) {
             var reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = function () {
                 var imgContent = reader.result.substring(22);
-                //console.log(imgContent);
                 var requests = {
                     "requests": [
                         {
