@@ -29,8 +29,9 @@
         function _getKeyGood(data) {
             vm.gcKey = data.data.Value;
         }
-        function _submitUpload(imgData) {
-
+        function _submitUpload() {
+            var files = document.getElementById('imageUpload').files;
+            getBase64(files[0]);
         }
         function _submitUri() {
             var requests = {
@@ -44,7 +45,7 @@
                         "features": [
                             {
                                 "type": "LABEL_DETECTION",
-                                "maxResults": 3
+                                "maxResults": 10
                             }
                         ]
                     }
@@ -55,6 +56,34 @@
         }
         function _getImgGood(resp) {
             console.log(resp);
+        }
+        function getBase64(file) {
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                var imgContent = reader.result.substring(22);
+                //console.log(imgContent);
+                var requests = {
+                    "requests": [
+                        {
+                            "image": {
+                                "content": imgContent
+                            },
+                            "features": [
+                                {
+                                    "type": "LABEL_DETECTION",
+                                    "maxResults": 10
+                                }
+                            ]
+                        }
+                    ]
+                }
+            vm.visionService.getImageAnalysis(vm.gcKey, requests)
+                .then(_getImgGood, _error);
+            };
+            reader.onerror = function (error) {
+                console.log('Error: ', error);
+            };
         }
         function _error(err) {
             console.log(err);
