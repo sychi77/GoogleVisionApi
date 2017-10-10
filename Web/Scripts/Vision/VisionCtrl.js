@@ -21,6 +21,8 @@
         vm.submitUri = _submitUri;
         vm.gcKey;
         vm.requests = [];
+        vm.imagePreview;
+        vm.labels;
 
         function _init() {
             vm.visionService.getKey()
@@ -31,7 +33,8 @@
         }
         function _submitUpload() {
             var files = document.getElementById('imageUpload').files;
-            getBase64(files[0]);
+            vm.imgFile = files[0];
+            getBase64(vm.imgFile);
         }
         function _submitUri() {
             var requests = {
@@ -52,11 +55,18 @@
                 ]
             }
             vm.visionService.getImageAnalysis(vm.gcKey, requests)
-                .then(_getImgGood, _error);
+                .then(_getUriGood, _error);
+        }
+        function _getUriGood(resp) {
+            console.log(resp);
+            vm.imagePreview = vm.imgUrl;
+            vm.labels = resp.data.responses[0].labelAnnotations;
+
         }
         function _getImgGood(resp) {
             console.log(resp);
-
+            vm.imagePreview = vm.imgFile;
+            vm.labels = resp.data.responses[0].labelAnnotations;
         }
         function getBase64(file) {
             var reader = new FileReader();

@@ -6,33 +6,47 @@
         <h1>Google Cloud Vision API</h1>
         <p class="lead">Web application that uses the Google Cloud Vision API to analyze images.</p>
     </div>
-    <div class="container">
-        <div class="well">
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#imgUrl">Image URL</a></li>
-                <li><a data-toggle="tab" href="#upload">Image Upload</a></li>
-            </ul>
-            <div class="tab-content">
-                <div id="imgUrl" class="tab-pane fade in active panel panel-default">
-                    <form class="panel-body">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" ng-model="vCtrl.imgUrl" class="form-control" id="inputAddress" placeholder="Enter URL of Image">
-                            </div>
-                        </div>
-                        <button class="btn btn-primary" ng-click="vCtrl.submitUri()">Submit</button>
-                    </form>
-                </div>
-                <div id="upload" class="tab-pane fade panel panel-default">
-                    <form class="panel-body">
+    <div class="container well">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#imgUrl">Image URL</a></li>
+            <li><a data-toggle="tab" href="#upload">Image Upload</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="imgUrl" class="tab-pane fade in active panel panel-default">
+                <form class="panel-body">
+                    <div class="form-row">
                         <div class="form-group">
-                            <input type="file" ng-model="vCtrl.imgFile" class="form-control-file" id="imageUpload">
+                            <input type="text" ng-model="vCtrl.imgUrl" class="form-control" id="inputAddress" placeholder="Enter URL of Image">
                         </div>
-                        <button class="btn btn-primary" ng-click="vCtrl.submitUpload()">Submit</button>
-                    </form>
-                </div>
+                    </div>
+                    <button class="btn btn-primary" ng-click="vCtrl.submitUri()">Submit</button>
+                </form>
+            </div>
+            <div id="upload" class="tab-pane fade panel panel-default">
+                <form class="panel-body">
+                    <div class="form-group">
+                        <input type="file" ng-model="vCtrl.imgFile" class="form-control-file" id="imageUpload">
+                    </div>
+                    <button class="btn btn-primary" ng-click="vCtrl.submitUpload()">Submit</button>
+                </form>
             </div>
         </div>
+            <img ng-src="{{vCtrl.imagePreview}}" class="img-thumbnail" width="608" height="472"/>
+        <table class="table table-condensed table-responsive">
+            <thead>
+                <tr>
+                    <th>Label</th>
+                    <th>Confidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="labels in vCtrl.labels">
+                    <td>{{ labels.description }}</td>
+                    <td>{{ labels.score }}</td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 
     @section scripts{
