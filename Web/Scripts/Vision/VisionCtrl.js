@@ -23,6 +23,7 @@
         vm.requests = [];
         vm.imagePreview;
         vm.labels;
+        vm.load = false;
 
         function _init() {
             vm.visionService.getKey()
@@ -33,8 +34,7 @@
         }
         function _submitUpload() {
             var files = document.getElementById('imageUpload').files;
-            vm.imgFile = files[0];
-            getBase64(vm.imgFile);
+            getBase64(files[0]);
         }
         function _submitUri() {
             var requests = {
@@ -58,12 +58,14 @@
                 .then(_getUriGood, _error);
         }
         function _getUriGood(resp) {
+            vm.load = true;
             console.log(resp);
             vm.imagePreview = vm.imgUrl;
             vm.labels = resp.data.responses[0].labelAnnotations;
 
         }
         function _getImgGood(resp) {
+            vm.load = true;
             console.log(resp);
             vm.imagePreview = vm.imgFile;
             vm.labels = resp.data.responses[0].labelAnnotations;
@@ -72,6 +74,7 @@
             var reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = function () {
+                vm.imgFile = reader.result;
                 var imgContent = reader.result.substring(22);
                 var requests = {
                     "requests": [

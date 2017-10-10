@@ -31,22 +31,23 @@
                 </form>
             </div>
         </div>
-            <img ng-src="{{vCtrl.imagePreview}}" class="img-thumbnail" width="608" height="472"/>
-        <table class="table table-condensed table-responsive">
-            <thead>
-                <tr>
-                    <th>Label</th>
-                    <th>Confidence</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="labels in vCtrl.labels">
-                    <td>{{ labels.description }}</td>
-                    <td>{{ labels.score }}</td>
-                </tr>
-            </tbody>
-        </table>
-
+        <div ng-show="vCtrl.load" ng-cloak>
+            <img ng-src="{{vCtrl.imagePreview}}" class="img-thumbnail" width="608" height="472" />
+            <table class="table table-condensed table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th>Label</th>
+                        <th>Confidence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="labels in vCtrl.labels">
+                        <td>{{ labels.description }}</td>
+                        <td>{{ labels.score }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     @section scripts{
