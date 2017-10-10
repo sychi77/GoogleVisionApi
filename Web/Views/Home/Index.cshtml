@@ -7,11 +7,13 @@
         <p class="lead">Web application that uses the Google Cloud Vision API to analyze images.</p>
     </div>
     <div class="container well">
+        <!--Navigation Tabs for Image URL or Image Upload Panes-->
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#imgUrl">Image URL</a></li>
             <li><a data-toggle="tab" href="#upload">Image Upload</a></li>
         </ul>
         <div class="tab-content">
+            <!--Image URL Entry Pane-->
             <div id="imgUrl" class="tab-pane fade in active panel panel-default">
                 <form class="panel-body">
                     <div class="form-row">
@@ -22,6 +24,7 @@
                     <button class="btn btn-primary" ng-click="vCtrl.submitUri()">Submit</button>
                 </form>
             </div>
+            <!--Image Upload Entry Pane-->
             <div id="upload" class="tab-pane fade panel panel-default">
                 <form class="panel-body">
                     <div class="form-group">
@@ -31,8 +34,11 @@
                 </form>
             </div>
         </div>
+        <!--Google Cloud Vision API Data shows below-->
         <div ng-show="vCtrl.load" ng-cloak>
+            <!--Image Preview-->
             <img ng-src="{{vCtrl.imagePreview}}" class="img-thumbnail" width="608" height="472" />
+            <!--Label Annotations Table-->
             <table class="table table-condensed table-responsive table-hover">
                 <thead>
                     <tr>
