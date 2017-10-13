@@ -11,6 +11,7 @@
             getKey: _getKey,
             getImageAnalysis: _getImageAnalysis
         };
+        //GET call for Google Cloud API Key
         function _getKey() {
             var settings = {
                 url: "/api/vision/gckey",
@@ -22,6 +23,7 @@
             return $http(settings)
                 .then(_complete, _fail);
         }
+        //POST to Google Cloud Vision API with JSON request data
         function _getImageAnalysis(key, data) {
             var settings = {
                 url: "https://vision.googleapis.com/v1/images:annotate?key=" + key,
