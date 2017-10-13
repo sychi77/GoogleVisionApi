@@ -1,5 +1,4 @@
-﻿//Index Controller
-(function () {
+﻿(function () {
     "use strict";
     angular
         .module('mainApp')
@@ -15,16 +14,17 @@
         vm.$onInit = _init;
         vm.$window = $window;
         vm.toastr = toastr;
-        vm.imgUrl;
-        vm.imgFile;
+        vm.imgUrl; //Image URL
+        vm.imgFile; //Image File Uploaded
         vm.submitUpload = _submitUpload;
         vm.submitUri = _submitUri;
         vm.gcKey;
         vm.requests = [];
         vm.imagePreview;
-        vm.labels;
+        vm.labels; //Label Annotations from Google Cloud Vision API
         vm.load = false;
 
+        //On initiation, gets Google Cloud API Key
         function _init() {
             vm.visionService.getKey()
                 .then(_getKeyGood, _error);
@@ -32,10 +32,12 @@
         function _getKeyGood(data) {
             vm.gcKey = data.data.Value;
         }
+        //Submit uploaded image as base-64 encoded file
         function _submitUpload() {
             var files = document.getElementById('imageUpload').files;
             getBase64(files[0]);
         }
+        //Submit image URL to Google Vision API
         function _submitUri() {
             var requests = {
                 "requests": [
@@ -70,6 +72,7 @@
             vm.imagePreview = vm.imgFile;
             vm.labels = resp.data.responses[0].labelAnnotations;
         }
+        //Function gets Base-64 encoded form of Image file for JSON request
         function getBase64(file) {
             var reader = new FileReader();
             reader.readAsDataURL(file);
@@ -91,8 +94,8 @@
                         }
                     ]
                 }
-            vm.visionService.getImageAnalysis(vm.gcKey, requests)
-                .then(_getImgGood, _error);
+                vm.visionService.getImageAnalysis(vm.gcKey, requests)
+                    .then(_getImgGood, _error);
             };
             reader.onerror = function (error) {
                 console.log('Error: ', error);
@@ -104,4 +107,3 @@
 
     }
 })();
-
