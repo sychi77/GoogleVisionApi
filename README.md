@@ -10,8 +10,8 @@ To keep the Google Cloud API key safe, I put it inside a SQL table and call a `G
 * For added security, you can implement the Vision API call through a proxy API call through your own web API service.
 * [Authenticating to Cloud Vision API](https://cloud.google.com/vision/docs/auth)
 
-For this app, I currently have `LABEL ANNOTATIONS` limit to 10 for the API calls.
-* Other features include: `CROP_HINTS`, `FACE_DETECTION`, `IMAGE_PROPERTIES`, `LANDMARK_DETECTION`, `LOGO_DETECTION`, `TEXT DETECTION`, `SAFE_SEARCH_DETECTION`, and `WEB_DETECTION`.
+For this app, I currently have `WEB_DETECTION` and `LABEL ANNOTATIONS` limit to 10 for the API calls.
+* Other features include: `CROP_HINTS`, `FACE_DETECTION`, `IMAGE_PROPERTIES`, `LANDMARK_DETECTION`, `LOGO_DETECTION`, `TEXT DETECTION`, and `SAFE_SEARCH_DETECTION`.
 * [Making a Vision API request](https://cloud.google.com/vision/docs/request)
 
 ## How the app works
@@ -33,7 +33,10 @@ The JSON request format for Image URL is set up as below.
         {
           "type":"LABEL_DETECTION",
           "maxResults":10
-        }
+        },
+        {
+          "type":"WEB_DETECTION"
+        }  
       ]
     }
   ]
@@ -52,7 +55,10 @@ The JSON request format for Image Upload is set up as below.
         {
           "type":"LABEL_DETECTION",
           "maxResults":10
-        }
+        },
+        {
+          "type":"WEB_DETECTION"
+        }  
       ]
     }
   ]
