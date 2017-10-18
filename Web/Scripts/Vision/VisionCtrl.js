@@ -18,11 +18,11 @@
         vm.imgFile; //Image File Uploaded
         vm.submitUpload = _submitUpload;
         vm.submitUri = _submitUri;
-        vm.gcKey;
+        vm.gcKey; //Google Cloud API Key
         vm.requests = [];
         vm.imagePreview;
         vm.labels; //Label Annotations from Google Cloud Vision API
-        vm.webDetection;
+        vm.webDetection; //Web Detection from Google Cloud Vision API
         vm.load = false;
 
         //On initiation, gets Google Cloud API Key
