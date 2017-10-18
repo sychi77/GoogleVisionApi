@@ -51,6 +51,9 @@
                             {
                                 "type": "LABEL_DETECTION",
                                 "maxResults": 10
+                            },
+                            {
+                                "type": "WEB_DETECTION"
                             }
                         ]
                     }
@@ -89,6 +92,9 @@
                                 {
                                     "type": "LABEL_DETECTION",
                                     "maxResults": 10
+                                },
+                                {
+                                    "type": "WEB_DETECTION"
                                 }
                             ]
                         }
