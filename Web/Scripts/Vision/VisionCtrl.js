@@ -69,13 +69,13 @@
             vm.imagePreview = vm.imgUrl;
             vm.labels = resp.data.responses[0].labelAnnotations;
             vm.webDetection = resp.data.responses[0].webDetection;
-            
         }
         function _getImgGood(resp) {
             vm.load = true;
             console.log(resp);
             vm.imagePreview = vm.imgFile;
             vm.labels = resp.data.responses[0].labelAnnotations;
+            vm.webDetection = resp.data.responses[0].webDetection;
         }
         //Function gets Base-64 encoded form of Image file for JSON request
         function getBase64(file) {

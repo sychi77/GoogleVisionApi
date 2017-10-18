@@ -68,6 +68,19 @@
                     </tr>
                 </tbody>
             </table>
+            <!--Pages Matching Table-->
+            <table class="table table-condensed table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th>Pages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pageMatch in vCtrl.webDetection.pagesWithMatchingImages">
+                        <td>{{ pageMatch.url }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
