@@ -22,6 +22,7 @@
         vm.requests = [];
         vm.imagePreview;
         vm.labels; //Label Annotations from Google Cloud Vision API
+        vm.webDetection;
         vm.load = false;
 
         //On initiation, gets Google Cloud API Key
@@ -67,7 +68,8 @@
             console.log(resp);
             vm.imagePreview = vm.imgUrl;
             vm.labels = resp.data.responses[0].labelAnnotations;
-
+            vm.webDetection = resp.data.responses[0].webDetection;
+            
         }
         function _getImgGood(resp) {
             vm.load = true;

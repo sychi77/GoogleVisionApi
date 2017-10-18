@@ -43,13 +43,28 @@
                 <thead>
                     <tr>
                         <th>Label</th>
-                        <th>Confidence</th>
+                        <th>Score</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="labels in vCtrl.labels">
                         <td>{{ labels.description }}</td>
                         <td>{{ labels.score }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--Web Entities Table-->
+            <table class="table table-condensed table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="webEnt in vCtrl.webDetection.webEntities">
+                        <td>{{ webEnt.description }}</td>
+                        <td>{{ webEnt.score }}</td>
                     </tr>
                 </tbody>
             </table>
