@@ -83,7 +83,8 @@
             reader.readAsDataURL(file);
             reader.onload = function () {
                 vm.imgFile = reader.result;
-                var imgContent = reader.result.substring(22);
+                var imgStringSplit = vm.imgFile.split(",");
+                var imgContent = imgStringSplit[1];
                 var requests = {
                     "requests": [
                         {

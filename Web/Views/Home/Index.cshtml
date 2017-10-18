@@ -38,21 +38,6 @@
         <div ng-show="vCtrl.load" ng-cloak>
             <!--Image Preview-->
             <img ng-src="{{vCtrl.imagePreview}}" class="img-thumbnail" width="608" height="472" />
-            <!--Label Annotations Table-->
-            <table class="table table-condensed table-responsive table-hover">
-                <thead>
-                    <tr>
-                        <th>Label</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="labels in vCtrl.labels">
-                        <td>{{ labels.description }}</td>
-                        <td>{{ labels.score }}</td>
-                    </tr>
-                </tbody>
-            </table>
             <!--Web Entities Table-->
             <table class="table table-condensed table-responsive table-hover">
                 <thead>
@@ -68,11 +53,26 @@
                     </tr>
                 </tbody>
             </table>
+            <!--Label Annotations Table-->
+            <table class="table table-condensed table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th>Label</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="labels in vCtrl.labels">
+                        <td>{{ labels.description }}</td>
+                        <td>{{ labels.score }}</td>
+                    </tr>
+                </tbody>
+            </table>
             <!--Pages Matching Table-->
             <table class="table table-condensed table-responsive table-hover">
                 <thead>
                     <tr>
-                        <th>Pages</th>
+                        <th>Matching Image Pages</th>
                     </tr>
                 </thead>
                 <tbody>
