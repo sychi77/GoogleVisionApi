@@ -53,6 +53,19 @@
                     </tr>
                 </tbody>
             </table>
+            <!--Pages Matching Table-->
+            <table class="table table-condensed table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th>Matching Image Pages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pageMatch in vCtrl.webDetection.pagesWithMatchingImages">
+                        <td><a ng-href="{{pageMatch.url}}">{{ pageMatch.url }}</a></td>
+                    </tr>
+                </tbody>
+            </table>
             <!--Label Annotations Table-->
             <table class="table table-condensed table-responsive table-hover">
                 <thead>
@@ -65,19 +78,6 @@
                     <tr ng-repeat="labels in vCtrl.labels">
                         <td>{{ labels.description }}</td>
                         <td>{{ labels.score }}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <!--Pages Matching Table-->
-            <table class="table table-condensed table-responsive table-hover">
-                <thead>
-                    <tr>
-                        <th>Matching Image Pages</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="pageMatch in vCtrl.webDetection.pagesWithMatchingImages">
-                        <td><a ng-href="{{pageMatch.url}}">{{ pageMatch.url }}</a></td>
                     </tr>
                 </tbody>
             </table>
