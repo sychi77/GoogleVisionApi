@@ -77,7 +77,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="pageMatch in vCtrl.webDetection.pagesWithMatchingImages">
-                        <td>{{ pageMatch.url }}</td>
+                        <td><a ng-href="{{pageMatch.url}}">{{ pageMatch.url }}</a></td>
                     </tr>
                 </tbody>
             </table>
